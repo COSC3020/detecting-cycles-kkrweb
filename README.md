@@ -77,4 +77,11 @@ Whether or not a cycle is detected is irrelevant, as the worst case assumes that
 Plagiarism Acknowledgement: I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
 
 
-Citations: WIP
+Citations:
+
+Conceptual logic help from the below 2 sources.
+I intentionally did not consult the listed JS code on either link.
+
+“Detect Cycle in a Directed Graph.” GeeksforGeeks, 5 Apr. 2025, www.geeksforgeeks.org/detect-cycle-in-a-graph/.
+
+“Detect Cycle in an Undirected Graph.” GeeksforGeeks, 7 Apr. 2025, www.geeksforgeeks.org/detect-cycle-undirected-graph/.
