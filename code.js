@@ -44,13 +44,15 @@ function hasCycle(graph)
                 
                 if(!visitedNodes[edgeDestination]) 
                 {
-                    var tempGraph = {};
-                    tempGraph[edgeDestination] = adjList[edgeDestination];
+                    visitedNodes[edgeDestination] = true;
+                    recursionStack[edgeDestination] = true;
+                    var tempGraph = graph;
                     
                     if(hasCycle(tempGraph)) 
                     {
                         return true;
                     }
+                    recursionStack[edgeDestination] = false;
                 } 
                     
                 else if(recursionStack[edgeDestination]) 
