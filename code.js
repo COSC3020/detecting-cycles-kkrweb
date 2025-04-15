@@ -44,15 +44,10 @@ function hasCycle(graph)
                 
                 if(!visitedNodes[edgeDestination]) 
                 {
-                    visitedNodes[edgeDestination] = true;
-                    recursionStack[edgeDestination] = true;
-                    var tempGraph = graph;
-                    
-                    if(hasCycle(tempGraph)) 
+                    if(hasCycle({[edgeDestination]: adjList[edgeDestination]})) 
                     {
                         return true;
                     }
-                    recursionStack[edgeDestination] = false;
                 } 
                     
                 else if(recursionStack[edgeDestination]) 
@@ -67,5 +62,6 @@ function hasCycle(graph)
     
     return false; //no cycles found
 }
+
 
 //
