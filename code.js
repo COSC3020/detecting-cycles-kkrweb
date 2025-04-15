@@ -19,7 +19,7 @@ function hasCycle(graph)
     //cover all nodes
     for(var node in adjList) 
     {
-        // Only process unvisited nodes
+        //process unvisited nodes
         if(!visitedNodes[node]) 
         {
             //current node set visited, add to stack
