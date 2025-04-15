@@ -6,8 +6,64 @@
 
 
 
+//
+
+
+
 function hasCycle(graph) 
 {
-    //
-    return false;
+    var visitedNodes = {};
+    var recursionStack = {};
+    var adjList = graph; 
+
+    //cover all nodes
+    for(var node in adjList) 
+    {
+        // Only process unvisited nodes
+        if(!visitedNodes[node]) 
+        {
+            //current node set visited, add to stack
+            visitedNodes[node] = true;
+            recursionStack[node] = true;
+            
+            var outEdges;
+            
+            if(adjList[node] == undefined) 
+            {
+                outEdges = [];
+            }
+                
+            else 
+            {
+                outEdges = adjList[node];
+            }
+            
+            for(var i = 0; i < outEdges.length; i++) 
+            {
+                var edgeDestination = outEdges[i];
+                
+                if(!visitedNodes[edgeDestination]) 
+                {
+                    var tempGraph = {};
+                    tempGraph[edgeDestination] = adjList[edgeDestination];
+                    
+                    if(hasCycle(tempGraph)) 
+                    {
+                        return true;
+                    }
+                } 
+                    
+                else if(recursionStack[edgeDestination]) 
+                {
+                    return true;
+                }
+            }
+            
+            recursionStack[node] = false;
+        }
+    }
+    
+    return false; //no cycles found
 }
+
+//
