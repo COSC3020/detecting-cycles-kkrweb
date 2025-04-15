@@ -14,10 +14,8 @@ function hasCycle(graph)
 {
     var visitedNodes = {};
     var recursionStack = {};
-    var adjList = graph; 
-
-    //cover all nodes
-    for(var node in adjList) 
+    
+    function checkNode(node, adjList) 
     {
         //process unvisited nodes
         if(!visitedNodes[node]) 
@@ -40,23 +38,35 @@ function hasCycle(graph)
             
             for(var i = 0; i < outEdges.length; i++) 
             {
-                var edgeDestination = outEdges[i];
+                var nextNode = outEdges[i];
                 
-                if(!visitedNodes[edgeDestination]) 
+                if(!visitedNodes[nextNode]) 
                 {
-                    if(hasCycle({[edgeDestination]: adjList[edgeDestination]})) 
+                    if(checkNode(nextNode, adjList)) 
                     {
                         return true;
                     }
                 } 
                     
-                else if(recursionStack[edgeDestination]) 
+                else if(recursionStack[nextNode]) 
                 {
                     return true;
                 }
             }
             
             recursionStack[node] = false;
+        }
+        return false;
+    }
+
+    var adjList = graph; 
+
+    //cover all nodes
+    for(var node in adjList) 
+    {
+        if(checkNode(node, adjList)) 
+        {
+            return true;
         }
     }
     
