@@ -60,7 +60,7 @@ Each vertex is processed exactly once through the recursive calls, contributing 
 
 Each edge is considered once when processing its respective source vertex, contributing $Θ(E)$ work where E is the number of edges.
 
-The recursion stack operations and visited checks each require O(1) time per operation, but since they must execute for every node and edge, such work contributes to the overall Θ(V + E) complexity.
+The recursion stack operations and visited checks each require $O(1)$ time per operation, but since they must execute for every node and edge, such work contributes to the overall $Θ(V + E)$ complexity.
 
 Due to this, the overall worst case time complexity of the implementation is $Θ(V + E)$.
 
